@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Open Graph Meta Tags for Facebook & Messenger Preview -->
-  <title>Batch 2001 25th Silver Reunion</title>
-  <meta property="og:title" content="Batch 2001 25th Silver Reunion Invitation" />
+  <title>MIPSS HS Batch 2001 25th Silver Reunion</title>
+  <meta property="og:title" content="MIPSS HS Batch 2001 25th Silver Reunion Invitation" />
   <meta property="og:description" content="Reconnect, reminisce, and celebrate 25 years of memories with old friends! RSVP now." />
   <meta property="og:type" content="website" />
 
@@ -54,7 +54,7 @@
       </div>
       
       <h1 class="text-3xl font-extrabold font-serif-title silver-gradient-text tracking-tight">
-        BATCH 2001 REUNION
+        MIPSS HS BATCH 2001 REUNION
       </h1>
       
       <p class="text-slate-300 text-sm leading-relaxed">
@@ -92,7 +92,7 @@
           </div>
           <div>
             <div class="font-semibold text-slate-200">Dress Code</div>
-            <div class="text-slate-300 font-medium">Blue Top <span class="text-slate-400 text-xs font-normal">(No Black Shirts)</span></div>
+            <div class="text-slate-300 font-medium">Blue top <span class="text-slate-400 text-xs font-normal">(any shade of blue)</span></div>
           </div>
         </div>
 
@@ -126,20 +126,28 @@
       
       <div class="space-y-3 text-sm">
         <div class="flex justify-between items-center py-1.5 border-b border-slate-800">
-          <span class="text-slate-400 font-mono text-xs">06:00 PM</span>
-          <span class="text-slate-200 font-medium">Arrival & Registration</span>
+          <span class="text-slate-400 font-mono text-xs w-24 flex-shrink-0">06:00 PM</span>
+          <span class="text-slate-200 font-medium text-right">Welcome & Catch-up</span>
         </div>
         <div class="flex justify-between items-center py-1.5 border-b border-slate-800">
-          <span class="text-slate-400 font-mono text-xs">06:30 PM</span>
-          <span class="text-slate-200 font-medium">Buffet Dinner</span>
+          <span class="text-slate-400 font-mono text-xs w-24 flex-shrink-0">06:30 - 06:40 PM</span>
+          <span class="text-slate-200 font-medium text-right">Opening Prayer & Remarks</span>
         </div>
         <div class="flex justify-between items-center py-1.5 border-b border-slate-800">
-          <span class="text-slate-400 font-mono text-xs">07:30 PM</span>
-          <span class="text-slate-200 font-medium">Trivia & Games</span>
+          <span class="text-slate-400 font-mono text-xs w-24 flex-shrink-0">06:40 - 07:00 PM</span>
+          <span class="text-slate-200 font-medium text-right">1st Raffle Draw & Icebreaker Games</span>
+        </div>
+        <div class="flex justify-between items-center py-1.5 border-b border-slate-800">
+          <span class="text-slate-400 font-mono text-xs w-24 flex-shrink-0">07:00 - 08:00 PM</span>
+          <span class="text-slate-200 font-medium text-right">Buffet Dinner & 25 Years Down Memory Lane</span>
+        </div>
+        <div class="flex justify-between items-center py-1.5 border-b border-slate-800">
+          <span class="text-slate-400 font-mono text-xs w-24 flex-shrink-0">08:00 - 09:00 PM</span>
+          <span class="text-slate-200 font-medium text-right">Raffle, Games, & Reunion Fun</span>
         </div>
         <div class="flex justify-between items-center py-1.5">
-          <span class="text-slate-400 font-mono text-xs">08:45 PM</span>
-          <span class="text-slate-200 font-medium">Chillax & Catch-up</span>
+          <span class="text-slate-400 font-mono text-xs w-24 flex-shrink-0">09:00 PM Onwards</span>
+          <span class="text-slate-200 font-medium text-right">Group Photos, Souvenirs, Drinks & More</span>
         </div>
       </div>
     </div>
@@ -150,7 +158,7 @@
         <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest">
           <i class="fa-solid fa-receipt text-slate-300 mr-1.5"></i> Contribution Details
         </h2>
-        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-0.5 rounded-full font-medium">Due Oct 31, 2026</span>
+        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-0.5 rounded-full font-medium">Due on or before Oct 31, 2026</span>
       </div>
 
       <div class="text-center py-2">
@@ -218,7 +226,7 @@
           <select id="rsvp-bank" name="paymentBank" class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-slate-400">
             <option value="China Bank (InstaPay QR)">China Bank (InstaPay QR)</option>
             <option value="GoTyme Bank (InstaPay QR)">GoTyme Bank (InstaPay QR)</option>
-            <option value="Will pay before Oct 31">Will pay before Oct 31</option>
+            <option value="Will pay before Oct 31">Will pay on or before Oct 31</option>
           </select>
         </div>
 
@@ -278,7 +286,7 @@
     form.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      if (!SCRIPT_URL || SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbwE0eldwbB4IckNG1IKX1t--dNqejLauMQh1kQXl9pBV3uDsTrLH-EF0tQUBff1Mc_b3w/exec') {
+      if (!SCRIPT_URL || SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE') {
         statusMsg.style.color = '#f87171';
         statusMsg.innerText = 'Setup Error: Please insert your Google Apps Script Web App URL in index.html.';
         return;
@@ -325,14 +333,14 @@
       const bank = document.getElementById('rsvp-bank').value;
       const ref = document.getElementById('rsvp-ref').value || 'None provided';
 
-      return `RSVP - Batch 2001 Reunion\n\nName: ${name}\nStatus: ${attendance}\nGuests: ${guests}\nPayment Option: ${bank}\nPayment Ref / Note: ${ref}`;
+      return `RSVP - MIPSS HS Batch 2001 Reunion\n\nName: ${name}\nStatus: ${attendance}\nGuests: ${guests}\nPayment Option: ${bank}\nPayment Ref / Note: ${ref}`;
     }
 
     function sendViaEmail() {
       triggerConfetti();
       const name = document.getElementById('rsvp-name').value || 'Guest';
       const bodyText = getFormattedSummary();
-      const mailtoUrl = `mailto:annacarolinaaguirre@outlook.com?subject=${encodeURIComponent('RSVP: Batch 2001 Reunion - ' + name)}&body=${encodeURIComponent(bodyText)}`;
+      const mailtoUrl = `mailto:annacarolinaaguirre@outlook.com?subject=${encodeURIComponent('RSVP: MIPSS HS Batch 2001 Reunion - ' + name)}&body=${encodeURIComponent(bodyText)}`;
       
       window.location.href = mailtoUrl;
     }
@@ -347,6 +355,10 @@
       }).catch(() => {
         window.open('https://m.me/annacarolina.aguirre', '_blank');
       });
+    }
+  </script>
+</body>
+</html>
     }
   </script>
 </body>
