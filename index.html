@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batch 2001 Silver Reunion</title>
+  <style>
+    :root {
+      --navy: #0A192F;
+      --navy-light: #172A45;
+      --silver: #C0C0C0;
+      --silver-light: #E6E8FA;
+      --white: #FFFFFF;
+      --accent: #E5E9F0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background-color: var(--navy);
+      color: var(--silver-light);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: var(--navy-light);
+      border: 2px solid var(--silver);
+      border-radius: 12px;
+      max-width: 600px;
+      width: 100%;
+      padding: 40px 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    .header-subtitle {
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: var(--white);
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--silver), transparent);
+      margin: 20px auto;
+      width: 80%;
+    }
+
+    p.details {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--silver-light);
+      margin-bottom: 25px;
+    }
+
+    .info-box {
+      background: rgba(192, 192, 192, 0.08);
+      border: 1px solid var(--silver);
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 30px;
+      font-size: 0.95rem;
+    }
+
+    .info-box strong {
+      color: var(--white);
+    }
+
+    /* RSVP Form Styling */
+    .rsvp-form {
+      text-align: left;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      color: var(--silver);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--navy);
+      border: 1px solid var(--silver);
+      border-radius: 6px;
+      color: var(--white);
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #FFFFFF;
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #C0C0C0 0%, #8A9EA7 100%);
+      color: var(--navy);
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #FFFFFF 0%, #C0C0C0 100%);
+      box-shadow: 0 0 12px rgba(192, 192, 192, 0.6);
+    }
+
+    #statusMessage {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="header-subtitle">You are cordially invited</div>
+    <h1>Batch 2001 Silver Reunion</h1>
+    
+    <div class="divider"></div>
+
+    <p class="details">
+      It’s time to catch up, reminisce, and celebrate our Silver Jubilee! Join us for an unforgettable evening of laughter, memories, and celebration.
+    </p>
+
+    <div class="info-box">
+      <p><strong>Date:</strong> [Insert Date Here]</p>
+      <p><strong>Time:</strong> [Insert Time Here]</p>
+      <p><strong>Venue:</strong> [Insert Venue / Location Here]</p>
+      <p><strong>Dress Code:</strong> Silver & Navy Elegant</p>
+    </div>
+
+    <!-- RSVP Form -->
+    <form id="rsvpForm" class="rsvp-form">
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required placeholder="e.g. Jane Doe">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="e.g. jane@example.com">
+      </div>
+
+      <div class="form-group">
+        <label for="attending">Will you be attending?</label>
+        <select id="attending" name="attending" required>
+          <option value="" disabled selected>Select an option</option>
+          <option value="Yes">Joyfully Accepts (Yes)</option>
+          <option value="No">Regretfully Declines (No)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="plusOne">Number of Guests / Plus Ones</label>
+        <input type="number" id="plusOne" name="plusOne" min="0" max="5" value="0">
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message / Dietary Requirements (Optional)</label>
+        <textarea id="message" name="message" rows="3" placeholder="Leave a note for the organizing committee..."></textarea>
+      </div>
+
+      <button type="submit" id="submitBtn">Submit RSVP</button>
+      <div id="statusMessage"></div>
+    </form>
+  </div>
+
+  <script>
+    // REPLACE THIS URL AFTER DEPLOYING YOUR GOOGLE APPS SCRIPT
+    const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+
+    const form = document.getElementById('rsvpForm');
+    const statusMsg = document.getElementById('statusMessage');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      if (SCRIPT_URL === '<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batch 2001 Silver Reunion</title>
+  <style>
+    :root {
+      --navy: #0A192F;
+      --navy-light: #172A45;
+      --silver: #C0C0C0;
+      --silver-light: #E6E8FA;
+      --white: #FFFFFF;
+      --accent: #E5E9F0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background-color: var(--navy);
+      color: var(--silver-light);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: var(--navy-light);
+      border: 2px solid var(--silver);
+      border-radius: 12px;
+      max-width: 600px;
+      width: 100%;
+      padding: 40px 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    .header-subtitle {
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: var(--white);
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--silver), transparent);
+      margin: 20px auto;
+      width: 80%;
+    }
+
+    p.details {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--silver-light);
+      margin-bottom: 25px;
+    }
+
+    .info-box {
+      background: rgba(192, 192, 192, 0.08);
+      border: 1px solid var(--silver);
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 30px;
+      font-size: 0.95rem;
+    }
+
+    .info-box strong {
+      color: var(--white);
+    }
+
+    /* RSVP Form Styling */
+    .rsvp-form {
+      text-align: left;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      color: var(--silver);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--navy);
+      border: 1px solid var(--silver);
+      border-radius: 6px;
+      color: var(--white);
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #FFFFFF;
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #C0C0C0 0%, #8A9EA7 100%);
+      color: var(--navy);
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #FFFFFF 0%, #C0C0C0 100%);
+      box-shadow: 0 0 12px rgba(192, 192, 192, 0.6);
+    }
+
+    #statusMessage {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="header-subtitle">You are cordially invited</div>
+    <h1>Batch 2001 Silver Reunion</h1>
+    
+    <div class="divider"></div>
+
+    <p class="details">
+      It’s time to catch up, reminisce, and celebrate our Silver Jubilee! Join us for an unforgettable evening of laughter, memories, and celebration.
+    </p>
+
+    <div class="info-box">
+      <p><strong>Date:</strong> [Insert Date Here]</p>
+      <p><strong>Time:</strong> [Insert Time Here]</p>
+      <p><strong>Venue:</strong> [Insert Venue / Location Here]</p>
+      <p><strong>Dress Code:</strong> Silver & Navy Elegant</p>
+    </div>
+
+    <!-- RSVP Form -->
+    <form id="rsvpForm" class="rsvp-form">
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required placeholder="e.g. Jane Doe">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="e.g. jane@example.com">
+      </div>
+
+      <div class="form-group">
+        <label for="attending">Will you be attending?</label>
+        <select id="attending" name="attending" required>
+          <option value="" disabled selected>Select an option</option>
+          <option value="Yes">Joyfully Accepts (Yes)</option>
+          <option value="No">Regretfully Declines (No)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="plusOne">Number of Guests / Plus Ones</label>
+        <input type="number" id="plusOne" name="plusOne" min="0" max="5" value="0">
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message / Dietary Requirements (Optional)</label>
+        <textarea id="message" name="message" rows="3" placeholder="Leave a note for the organizing committee..."></textarea>
+      </div>
+
+      <button type="submit" id="submitBtn">Submit RSVP</button>
+      <div id="statusMessage"></div>
+    </form>
+  </div>
+
+  <script>
+    // REPLACE THIS URL AFTER DEPLOYING YOUR GOOGLE APPS SCRIPT
+    const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+
+    const form = document.getElementById('rsvpForm');
+    const statusMsg = document.getElementById('statusMessage');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      if (SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE') {
+        statusMsg.style.color = '#ff6b6b';
+        statusMsg.innerHTML = 'Please configure the Google Apps Script Web App URL in index.html first.';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Sending...';
+      statusMsg.style.color = '#C0C0C0';
+      statusMsg.innerText = 'Submitting your RSVP...';
+
+      const formData = new FormData(form);
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.result === 'success') {
+          statusMsg.style.color = '#51cf66';
+          statusMsg.innerText = 'Thank you! Your RSVP has been recorded successfully.';
+          form.reset();
+        } else {
+          throw new Error(data.error || 'Submission failed');
+        }
+      })
+      .catch(error => {
+        statusMsg.style.color = '#ff6b6b';
+        statusMsg.innerText = 'Error submitting RSVP. Please try again.';
+        console.error('Error!', error.message);
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Submit RSVP';
+      });
+    });
+  </script>
+</body>
+</html>
+') {
+        statusMsg.style.color = '#ff6b6b';
+        statusMsg.innerHTML = 'Please configure the Google Apps Script Web App URL in index.html first.';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Sending...';
+      statusMsg.style.color = '#C0C0C0';
+      statusMsg.innerText = 'Submitting your RSVP...';
+
+      const formData = new FormData(form);
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.result === 'success') {
+          statusMsg.style.color = '#51cf66';
+          statusMsg.innerText = 'Thank you! Your RSVP has been recorded successfully.';
+          form.reset();
+        } else {
+          throw new Error(data.error || 'Submission failed');
+        }
+      })
+      .catch(error => {
+        statusMsg.style.color = '#ff6b6b';
+        statusMsg.innerText = 'Error submitting RSVP. Please try again.';
+        console.error('Error!', error.message);
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Submit RSVP';
+      });
+    });
+  </script>
+</body>
+</html>
